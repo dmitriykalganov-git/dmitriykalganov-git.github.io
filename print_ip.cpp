@@ -80,7 +80,8 @@ struct print_ip {
 		}
 		else
 		m_value = decimal_to_ip(value);
-		std::cout << m_value << std::endl;
+		if((value == 0)) std::cout << m_value.substr(2, 3) << std::endl;
+		else std::cout << m_value << std::endl;
 	}
 
 template <typename T>
@@ -92,6 +93,7 @@ void printElem(const T& x, int i) {
 template <typename TupleT, std::size_t... Is>
 void printTupleManual(const TupleT& tp) {
     (printElem(std::get<Is>(tp),Is), ...);
+	std::cout << std::endl;
 }
 
 		template <
